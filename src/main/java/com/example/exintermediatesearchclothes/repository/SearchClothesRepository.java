@@ -10,8 +10,6 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
-import com.example.exintermediatesearchclothes.form.ColorForm;
-import com.example.exintermediatesearchclothes.form.GenderForm;
 import com.example.exintermediatesearchclothes.model.Clothes;
 
 @Repository
@@ -38,8 +36,8 @@ public class SearchClothesRepository {
     @Autowired
     private NamedParameterJdbcTemplate template;
 
-    public List<Clothes> searchClothes(GenderForm genderForm, ColorForm colorForm) {
-        SqlParameterSource params = new MapSqlParameterSource().addValue("gender", genderForm.getGender()).addValue("color", colorForm.getColor());
+    public List<Clothes> searchClothes(Integer gender, String color) {
+        SqlParameterSource params = new MapSqlParameterSource().addValue("gender", gender).addValue("color", color);
         List<Clothes> filteredClothes = template.query(SEARCH_CLOTHES, params, RESULT_ROW_MAPPER);
 
         return filteredClothes;
