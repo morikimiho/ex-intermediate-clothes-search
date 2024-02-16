@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,5 +30,37 @@
             </div>
             <button style="margin-top: 30px;">検索</button>
         </form>
+        <main style="margin-top: 30px;">
+            <ul th:each="clothes : ${session.filteredClothes}">
+                <li style="list-style: none;">
+                    <div>
+                        <label for="genre">ジャンル</label>
+                        <span th:text="${clothes.genre}"></span>
+                    </div>
+                    <div>
+                        <label for="size">サイズ</label>
+                        <span th:text="${clothes.size}"></span>
+                    </div>
+                    <div>
+                        <label for="price">価格</label>
+                        <span th:text="${clothes.price}"></span>
+                    </div>
+                </li>
+            </ul>
+        </main>
 </body>
 </html>
+
+<style>
+    main ul li {
+        width: 300px;
+        border: 1px solid;
+    }
+    
+    main ul li div label{
+        display: inline-block;
+        width: 150px;
+        border-right: 1px solid;
+    }
+    
+</style>
