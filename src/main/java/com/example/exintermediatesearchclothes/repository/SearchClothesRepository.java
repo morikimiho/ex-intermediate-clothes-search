@@ -22,7 +22,7 @@ public class SearchClothesRepository {
                 gender,
                 color,
                 price,
-                size,
+                size
             FROM
                 clothes
             WHERE

@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.exintermediatesearchclothes.form.ColorForm;
-import com.example.exintermediatesearchclothes.form.GenderForm;
 import com.example.exintermediatesearchclothes.model.Clothes;
 import com.example.exintermediatesearchclothes.repository.SearchClothesRepository;
 
@@ -17,8 +15,8 @@ public class SearchClothesService {
     @Autowired
     private SearchClothesRepository searchClothesRepository;
 
-    public List<Clothes> searchClothes(GenderForm genderForm, ColorForm colorForm) {
-        List<Clothes> filteredClothes = searchClothesRepository.searchClothes(genderForm.getGender(), colorForm.getColor());
+    public List<Clothes> searchClothes(Integer gender, String color) {
+        List<Clothes> filteredClothes = searchClothesRepository.searchClothes(gender, color);
         return filteredClothes;
     }
 }

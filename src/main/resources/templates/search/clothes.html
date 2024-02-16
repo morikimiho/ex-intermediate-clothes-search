@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>衣類検索</title>
+</head>
+<body>
+    <h1>衣類検索</h1>
+        <form th:action="@{/submit-clothes}" method="post">
+            <div class="input-area" style="display: flex;">
+                <section style="width: 100px;">
+                    <div>
+                        <input type="radio" name="gender" id="gender" value="0" checked>
+                        <label for="man">男</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="gender" id="gender" value="1">
+                        <label for="woman">女</label>
+                    </div>
+                </section>
+                <section style="width: 100px;">
+                    <select name="color" id="color">
+                        <option value="赤">赤</option>
+                        <option value="青">青</option>
+                        <option value="白">白</option>
+                        <option value="黄">黄</option>
+                    </select>
+                </section>
+            </div>
+            <button style="margin-top: 30px;">検索</button>
+        </form>
+</body>
+</html>
